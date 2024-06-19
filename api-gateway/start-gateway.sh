@@ -1,7 +1,9 @@
 #!/usr/bin/bash
 
- docker network create -d bridge app-network
+# Create docker network which all the microservices share
+docker network create -d bridge app-network
 
+# Start a PostgreSQL container
 docker run -d --name kong-database \
     --network=app-network \
     -p 5432:5432 \
@@ -10,6 +12,7 @@ docker run -d --name kong-database \
     -e "POSTGRES_PASSWORD=kongpass" \
     postgres:13
 
+# Prepare the Kong database
 docker run --rm --network=app-network \
     -e "KONG_DATABASE=postgres" \
     -e "KONG_PG_HOST=kong-database" \
@@ -17,6 +20,7 @@ docker run --rm --network=app-network \
     -e "KONG_PASSWORD=test" \
     kong/kong-gateway:3.7.0.0 kong migrations bootstrap
 
+# Following command will start a container with Kong Gateway:
 docker run -d --name kong-gateway \
     --network=app-network \
     -e "KONG_DATABASE=postgres" \
