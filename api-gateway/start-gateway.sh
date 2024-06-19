@@ -1,16 +1,16 @@
 #!/usr/bin/bash
 
-docker network create kong-net
+ docker network create -d bridge app-network
 
 docker run -d --name kong-database \
-    --network=kong-net \
+    --network=app-network \
     -p 5432:5432 \
     -e "POSTGRES_USER=kong" \
     -e "POSTGRES_DB=kong" \
     -e "POSTGRES_PASSWORD=kongpass" \
     postgres:13
 
-docker run --rm --network=kong-net \
+docker run --rm --network=app-network \
     -e "KONG_DATABASE=postgres" \
     -e "KONG_PG_HOST=kong-database" \
     -e "KONG_PG_PASSWORD=kongpass" \
@@ -18,7 +18,7 @@ docker run --rm --network=kong-net \
     kong/kong-gateway:3.7.0.0 kong migrations bootstrap
 
 docker run -d --name kong-gateway \
-    --network=kong-net \
+    --network=app-network \
     -e "KONG_DATABASE=postgres" \
     -e "KONG_PG_HOST=kong-database" \
     -e "KONG_PG_USER=kong" \
