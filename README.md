@@ -1,3 +1,5 @@
 # microservices-dev-environment
 
-I have come to the conclusion that microservices should be developed with docker-compose and not with kubernetes. Only deployment should be kubernetes. The reason for this is ease of use and there is no need for such scalability locally.
+Development environment for microservices by using docker-compose
+
+![microservices-eks drawio](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/ee96549e-e64c-4fc0-844e-f7655cf3f803)
