@@ -18,6 +18,17 @@ public class ShippingDetails {
         this.shipped = shipped;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public boolean isShipped() {
+        return shipped;
+    }
 
     @Override
     public String toString() {

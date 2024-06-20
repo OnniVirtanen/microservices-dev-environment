@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-// add path
 public class ShippingController {
 
     private final ShippingDetailsRepository repository;
@@ -17,7 +16,7 @@ public class ShippingController {
 
     @GetMapping
     public List<ShippingDetails> getShippingDetails() {
-        repository.findAll();
+        return repository.findAll();
     }
 
 }
