@@ -2,4 +2,4 @@
 
 Development environment for microservices by using docker-compose
 
-![image](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/d72713e3-3408-4978-9929-104bb24c9fc3)
+![image](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/5c126595-b7c3-4fec-8557-fc1a7b87034e)
