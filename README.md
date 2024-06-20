@@ -9,4 +9,5 @@ This documents consists of a development and a test environment for microservice
 
 ## test environment:
 
-![image](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/d940d8e2-cd98-4aad-bb65-d47b598e19d2)
+![image](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/326cf589-097a-49a8-b5d9-81082254d616)
+
