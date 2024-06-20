@@ -7,6 +7,8 @@ services:
       - 8040:8040
     networks:
       - app-network
+    depends_on:
+      - mongodb
   inventory-service:
     image: 'inventory-service:latest'
     build:
@@ -33,6 +35,17 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
+    networks:
+      - app-network
+  mongodb:
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    ports:
+      - 27017:27017
+    volumes:
+      - ~/apps/mongodb:/var/lib/mongodb/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongo
+      - MONGO_INITDB_ROOT_PASSWORD=mongo
     networks:
       - app-network
 
