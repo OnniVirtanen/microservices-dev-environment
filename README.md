@@ -57,7 +57,8 @@ The Order Service listens for ShipmentInformed and completes the order by emitti
 
 ## local dev environment:
 
-![image](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/49442777-2d96-413e-9ced-5d1fd5f6c4db)
+![image](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/7bf2d40f-95de-413b-92a2-0c1f445d99a3)
+
 
 
 
