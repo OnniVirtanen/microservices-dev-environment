@@ -1,6 +1,6 @@
-# microservices-dev-environment
+# microservices-dev-and-test-env
 
-Development environment for microservices by using docker-compose
+This documents consists of a development and a test environment for microservices.
 
 ## local dev environment:
 
