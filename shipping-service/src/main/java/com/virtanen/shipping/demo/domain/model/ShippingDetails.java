@@ -1,4 +1,4 @@
-package com.virtanen.shipping.demo;
+package com.virtanen.shipping.demo.domain.model;
 
 import org.springframework.data.annotation.Id;
 
