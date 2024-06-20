@@ -63,5 +63,6 @@ The Order Service listens for ShipmentInformed and completes the order by emitti
 
 ## test environment:
 
-![image](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/326cf589-097a-49a8-b5d9-81082254d616)
+<img width="627" alt="image" src="https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/207da740-173d-411c-a8da-f806c03b4e41">
+
 
