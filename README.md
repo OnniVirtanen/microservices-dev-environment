@@ -11,7 +11,8 @@ Let's use choreography based saga pattern for order workflow. Lets use Kafka as 
 
 ## local dev environment:
 
-![image](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/7bf2d40f-95de-413b-92a2-0c1f445d99a3)
+![image](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/9a3c1553-795b-452b-9b9c-7df77647375a)
+
 
 
 
