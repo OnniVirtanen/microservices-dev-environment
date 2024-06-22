@@ -5,7 +5,7 @@ This documents consists of a development and a test environment for microservice
 ## Order workflow
 Let's use choreography based saga pattern for order workflow. Lets use Kafka as a message bus:
 
-![image](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/bcaa09fc-02a1-4d35-93ad-033009dddd5c)
+![image](https://github.com/OnniVirtanen/microservices-dev-environment/assets/116679314/4fca2b8e-a401-43b1-bc2e-70850fa9742b)
 
 
 
