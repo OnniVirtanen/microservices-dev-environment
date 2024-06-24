@@ -1,4 +1,4 @@
-package com.virtanen.shipping.demo.domain.event;
+package com.virtanen.shipping.demo.domain.util;
 
 import java.util.UUID;
 

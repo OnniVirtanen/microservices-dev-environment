@@ -1,8 +1,8 @@
 package com.virtanen.shipping.demo.domain;
 
-import com.virtanen.shipping.demo.domain.model.Event;
+import com.virtanen.shipping.demo.domain.event.Event;
 
-public interface EventPublisher {
+public interface EventProducer {
 
     void publish(Event event);
 

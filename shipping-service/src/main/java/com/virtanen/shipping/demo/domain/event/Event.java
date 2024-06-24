@@ -1,9 +1,12 @@
-package com.virtanen.shipping.demo.domain.model;
+package com.virtanen.shipping.demo.domain.event;
 
 public abstract class Event {
 
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
+
+    public Event() {
+    }
 
     protected Event(String id, String name) {
         this.id = id;
