@@ -1,6 +1,6 @@
 package com.virtanen.shipping.demo.domain.event;
 
-import com.virtanen.shipping.demo.domain.IdGenerator;
+import com.virtanen.shipping.demo.domain.util.EventIdGenerator;
 
 public class PaymentProcessedEvent extends Event {
 
@@ -11,7 +11,7 @@ public class PaymentProcessedEvent extends Event {
     }
 
     public PaymentProcessedEvent(String paymentId, String orderId) {
-        super(IdGenerator.generateEventId(), "_paymentProcessed");
+        super(EventIdGenerator.generateId(), "_paymentProcessed");
         this.paymentId = paymentId;
         this.orderId = orderId;
     }
