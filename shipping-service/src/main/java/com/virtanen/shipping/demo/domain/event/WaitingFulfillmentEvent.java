@@ -1,7 +1,5 @@
 package com.virtanen.shipping.demo.domain.event;
 
-import com.virtanen.shipping.demo.domain.util.EventIdGenerator;
-
 public class WaitingFulfillmentEvent extends Event {
 
     private String orderId;
@@ -11,7 +9,7 @@ public class WaitingFulfillmentEvent extends Event {
     }
 
     public WaitingFulfillmentEvent(String orderId, String shipmentId) {
-        super(EventIdGenerator.generateId(), "_waitingFulfillment");
+        super("_waitingFulfillment");
         this.orderId = orderId;
         this.shipmentId = shipmentId;
     }

@@ -1,5 +1,7 @@
 package com.virtanen.shipping.demo.domain.event;
 
+import com.virtanen.shipping.demo.domain.util.EventIdGenerator;
+
 public abstract class Event {
 
     private String id;
@@ -8,8 +10,8 @@ public abstract class Event {
     protected Event() {
     }
 
-    protected Event(String id, String name) {
-        this.id = id;
+    protected Event(String name) {
+        this.id = EventIdGenerator.generateId();
         this.name = name;
     }
 
