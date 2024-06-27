@@ -17,14 +17,12 @@ public class ShippingServiceImpl implements ShippingService {
     }
 
     public void handleShipment(PaymentProcessedEvent event) {
-        if (event != null) {
-            ShippingDetails details = new ShippingDetails(null, event.getOrderId(), false);
-            repository.save(details);
-            producer.publish(new WaitingFulfillmentEvent(
-                    details.getOrderId(),
-                    details.getId()
-            ));
-        }
+        ShippingDetails details = new ShippingDetails(null, event.getOrderId(), false);
+        repository.save(details);
+        producer.publish(new WaitingFulfillmentEvent(
+                details.getOrderId(),
+                details.getId()
+        ));
     }
 
 }

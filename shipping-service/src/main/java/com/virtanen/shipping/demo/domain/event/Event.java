@@ -2,6 +2,7 @@ package com.virtanen.shipping.demo.domain.event;
 
 import com.virtanen.shipping.demo.domain.util.EventIdGenerator;
 
+
 public abstract class Event {
 
     private String id;

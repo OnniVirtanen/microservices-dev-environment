@@ -6,10 +6,11 @@ public class WaitingFulfillmentEvent extends Event {
     private String shipmentId;
 
     public WaitingFulfillmentEvent() {
+        super("waitingFulfillment");
     }
 
     public WaitingFulfillmentEvent(String orderId, String shipmentId) {
-        super("_waitingFulfillment");
+        this();
         this.orderId = orderId;
         this.shipmentId = shipmentId;
     }

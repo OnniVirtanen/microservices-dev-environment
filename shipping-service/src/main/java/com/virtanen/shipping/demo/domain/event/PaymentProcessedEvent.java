@@ -6,10 +6,11 @@ public class PaymentProcessedEvent extends Event {
     private String orderId;
 
     public PaymentProcessedEvent() {
+        super("paymentProcessed");
     }
 
     public PaymentProcessedEvent(String paymentId, String orderId) {
-        super("_paymentProcessed");
+        this();
         this.paymentId = paymentId;
         this.orderId = orderId;
     }
