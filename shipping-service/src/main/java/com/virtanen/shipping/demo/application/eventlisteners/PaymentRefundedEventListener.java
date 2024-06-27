@@ -14,7 +14,7 @@ public class PaymentRefundedEventListener extends EventListener<PaymentRefundedE
     @Override
     @KafkaListener(topics = "payment", groupId = "payment-refunded-group")
     public void listen(String message) {
-        if (isRelevantEvent(message)) {
+        if (this.isRelevantEvent(message)) {
             consume(this.parseMessage(message));
         }
     }

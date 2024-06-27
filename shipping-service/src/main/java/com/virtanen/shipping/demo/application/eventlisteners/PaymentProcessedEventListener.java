@@ -18,7 +18,7 @@ public class PaymentProcessedEventListener extends EventListener<PaymentProcesse
     @Override
     @KafkaListener(topics = "payment", groupId = "payment-processed-group")
     public void listen(String message) {
-        if (isRelevantEvent(message)) {
+        if (this.isRelevantEvent(message)) {
             consume(this.parseMessage(message));
         }
     }
