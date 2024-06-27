@@ -28,9 +28,9 @@ public class ShippingKafkaProducer implements EventProducer {
         try {
             String eventJson = objectMapper.writeValueAsString(event);
             kafkaTemplate.send(TOPIC, eventJson);
-            logger.log(Level.DEBUG, "sent event" + eventJson);
+            logger.debug("sent event: {}", eventJson);
         } catch (JsonProcessingException e) {;
-            logger.log(Level.ERROR, e);
+            logger.error(e);
         }
     }
 
