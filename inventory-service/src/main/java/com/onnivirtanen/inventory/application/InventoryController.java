@@ -33,8 +33,8 @@ public class InventoryController {
     }
 
     @PostMapping(path = "product", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<ProductDTO> addNewProduct(@RequestBody AddNewProductCommand request) {
-        Product product = inventoryService.addNewProduct(request);
+    ResponseEntity<ProductDTO> addNewProduct(@RequestBody AddNewProductCommand command) {
+        Product product = inventoryService.addNewProduct(command);
         return ResponseEntity.ok(ProductDTOMapper.INSTANCE.toDTO(product));
     }
 
@@ -49,26 +49,26 @@ public class InventoryController {
     }
 
     @PutMapping(path = "product/restock", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<String> reStockProduct(@RequestBody ReStockProductCommand request) {
-        inventoryService.reStockProduct(request);
+    ResponseEntity<String> reStockProduct(@RequestBody ReStockProductCommand command) {
+        inventoryService.reStockProduct(command);
         return ResponseEntity.ok("Product restocked successfully.");
     }
 
     @DeleteMapping(path = "product", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<String> removeProductFromSelection(@RequestBody RemoveProductCommand request) {
-        inventoryService.removeProductFromSelection(request);
+    ResponseEntity<String> removeProductFromSelection(@RequestBody RemoveProductCommand command) {
+        inventoryService.removeProductFromSelection(command);
         return ResponseEntity.ok("Product removed successfully.");
     }
 
     @PutMapping(path = "product/new-shelf-location", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<String> assignNewShelfLocation(@RequestBody NewShelfLocationCommand request) {
-        inventoryService.assignNewShelfLocation(request);
+    ResponseEntity<String> assignNewShelfLocation(@RequestBody NewShelfLocationCommand command) {
+        inventoryService.assignNewShelfLocation(command);
         return ResponseEntity.ok("Assigned new shelf location successfully.");
     }
 
     @PutMapping(path = "product/missing", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<String> markProductMissing(@RequestBody ProductMissingCommand request) {
-        inventoryService.markProductMissing(request);
+    ResponseEntity<String> markProductMissing(@RequestBody ProductMissingCommand command) {
+        inventoryService.markProductMissing(command);
         return ResponseEntity.ok("Product marked missing successfully.");
     }
 }

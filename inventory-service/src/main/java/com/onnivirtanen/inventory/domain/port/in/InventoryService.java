@@ -11,15 +11,15 @@ import java.util.List;
 
 public interface InventoryService {
 
-    Product addNewProduct(AddNewProductCommand request);
+    Product addNewProduct(AddNewProductCommand command);
 
-    Product reStockProduct(ReStockProductCommand request);
+    Product reStockProduct(ReStockProductCommand command);
 
-    void removeProductFromSelection(RemoveProductCommand request);
+    void removeProductFromSelection(RemoveProductCommand command);
 
     List<Product> findAllProducts();
 
-    void assignNewShelfLocation(NewShelfLocationCommand request);
+    void assignNewShelfLocation(NewShelfLocationCommand command);
 
-    void markProductMissing(ProductMissingCommand request);
+    void markProductMissing(ProductMissingCommand command);
 }

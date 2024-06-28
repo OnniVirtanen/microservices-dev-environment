@@ -91,15 +91,15 @@ public class Product implements Aggregate, Serializable {
         this.location = location;
     }
 
-    public static Product from(AddNewProductCommand request) {
+    public static Product from(AddNewProductCommand command) {
         Product product = new Product(
                 null,
-                request.barcode(),
-                request.price(),
-                request.category(),
-                request.location(),
-                request.discount(),
-                request.quantity()
+                command.barcode(),
+                command.price(),
+                command.category(),
+                command.location(),
+                command.discount(),
+                command.quantity()
         );
 
         product.addDomainEvent(new ProductCreatedEvent(product, "product created"));

@@ -30,13 +30,13 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     @Transactional
-    public Product addNewProduct(AddNewProductCommand request) {
-        boolean productExists = repository.productExistsByEAN(request.barcode());
+    public Product addNewProduct(AddNewProductCommand command) {
+        boolean productExists = repository.productExistsByEAN(command.barcode());
         if (productExists) {
             throw new ProductAlreadyExistsException("Product with same EAN already exists.");
         }
 
-        Product product = Product.from(request);
+        Product product = Product.from(command);
         Product savedProduct = repository.save(product);
 
         publishDomainEvents(product);
@@ -45,11 +45,11 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     @Transactional
-    public Product reStockProduct(ReStockProductCommand request) {
-        Product product = repository.findById(request.productId())
+    public Product reStockProduct(ReStockProductCommand command) {
+        Product product = repository.findById(command.productId())
                 .orElseThrow(() -> new ProductNotFoundException("No product found by given id"));
 
-        product.reStock(request.quantity());
+        product.reStock(command.quantity());
         Product updatedProduct = repository.update(product);
 
         publishDomainEvents(product);
@@ -58,11 +58,11 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     @Transactional
-    public void removeProductFromSelection(RemoveProductCommand request) {
-        repository.findById(request.productId())
+    public void removeProductFromSelection(RemoveProductCommand command) {
+        repository.findById(command.productId())
                 .orElseThrow(() -> new ProductNotFoundException("No product found by given id"));
 
-        repository.deleteById(request.productId());
+        repository.deleteById(command.productId());
     }
 
     @Override
@@ -73,22 +73,22 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     @Transactional
-    public void assignNewShelfLocation(NewShelfLocationCommand request) {
-        Product product = repository.findById(request.productId())
+    public void assignNewShelfLocation(NewShelfLocationCommand command) {
+        Product product = repository.findById(command.productId())
                 .orElseThrow(() -> new ProductNotFoundException("No product found by given id"));
 
-        product.assignShelfLocation(request.location());
+        product.assignShelfLocation(command.location());
 
         repository.update(product);
     }
 
     @Override
     @Transactional
-    public void markProductMissing(ProductMissingCommand request) {
-        Product product = repository.findById(request.productId())
+    public void markProductMissing(ProductMissingCommand command) {
+        Product product = repository.findById(command.productId())
                 .orElseThrow(() -> new ProductNotFoundException("No product found by given id"));
 
-        product.markProductMissing(request.quantity());
+        product.markProductMissing(command.quantity());
         repository.update(product);
 
         publishDomainEvents(product);
