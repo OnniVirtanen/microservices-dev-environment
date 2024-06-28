@@ -1,16 +1,17 @@
 package com.virtanen.shipping.demo.application.eventlisteners;
 
+import com.virtanen.event.EventConsumer;
 import com.virtanen.shipping.demo.domain.ShippingService;
 import com.virtanen.shipping.demo.domain.event.PaymentProcessedEvent;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PaymentProcessedEventListener extends EventListener<PaymentProcessedEvent> {
+public class PaymentProcessedEventConsumer extends EventConsumer<PaymentProcessedEvent> {
 
     private final ShippingService shippingService;
 
-    public PaymentProcessedEventListener(ShippingService shippingService) {
+    public PaymentProcessedEventConsumer(ShippingService shippingService) {
         super(PaymentProcessedEvent.class);
         this.shippingService = shippingService;
     }
@@ -18,13 +19,13 @@ public class PaymentProcessedEventListener extends EventListener<PaymentProcesse
     @Override
     @KafkaListener(topics = "payment", groupId = "payment-processed-group")
     public void listen(String message) {
-        if (this.isRelevantEvent(message)) {
-            consume(this.parseMessage(message));
+        if (super.isRelevantEvent(message)) {
+            consume(super.parseMessage(message));
         }
     }
 
     @Override
-    void consume(PaymentProcessedEvent event) {
+    protected void consume(PaymentProcessedEvent event) {
         shippingService.handleShipment(event);
     }
 

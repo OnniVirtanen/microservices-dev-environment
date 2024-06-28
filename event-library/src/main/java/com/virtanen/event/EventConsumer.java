@@ -56,6 +56,6 @@ public abstract class EventConsumer<T extends Event> {
 
     public abstract void listen(String message);
 
-    abstract void consume(T event);
+    protected abstract void consume(T event);
 
 }

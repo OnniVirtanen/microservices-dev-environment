@@ -1,5 +1,7 @@
 package com.virtanen.shipping.demo.domain.event;
 
+import com.virtanen.event.Event;
+
 public class PaymentProcessedEvent extends Event {
 
     private String paymentId;

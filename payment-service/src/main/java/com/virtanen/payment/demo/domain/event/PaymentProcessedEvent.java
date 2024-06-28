@@ -1,17 +1,17 @@
-package com.virtanen.shipping.demo.domain.event;
+package com.virtanen.payment.demo.domain.event;
 
 import com.virtanen.event.Event;
 
-public class PaymentRefundedEvent extends Event {
+public class PaymentProcessedEvent extends Event {
 
     private String paymentId;
     private String orderId;
 
-    public PaymentRefundedEvent() {
-        super("paymentRefunded");
+    public PaymentProcessedEvent() {
+        super("paymentProcessed");
     }
 
-    public PaymentRefundedEvent(String paymentId, String orderId) {
+    public PaymentProcessedEvent(String paymentId, String orderId) {
         this();
         this.paymentId = paymentId;
         this.orderId = orderId;
