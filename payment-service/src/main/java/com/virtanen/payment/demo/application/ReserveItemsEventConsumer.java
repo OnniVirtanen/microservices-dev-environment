@@ -17,7 +17,7 @@ public class ReserveItemsEventConsumer extends EventConsumer<ReserveItemsEvent> 
     }
 
     @Override
-    @KafkaListener(topics = "items", groupId = "items-reserved-group")
+    @KafkaListener(topics = "inventory", groupId = "items-reserved-group")
     public void listen(String message) {
         if (super.isRelevantEvent(message)) {
             consume(super.parseMessage(message));

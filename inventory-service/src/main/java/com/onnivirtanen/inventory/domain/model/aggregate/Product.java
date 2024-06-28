@@ -26,9 +26,10 @@ public class Product implements Aggregate, Serializable {
     private ShelfLocation location;
     private Discount discount;
     private Quantity quantity;
+    private Quantity reserved;
 
     public Product(UUID id, EANBarcode barcode, Price price, Category category, ShelfLocation location,
-                   Discount discount, Quantity quantity) {
+                   Discount discount, Quantity quantity, Quantity reserved) {
         this.id = id;
         this.barcode = barcode;
         this.price = price;
@@ -36,6 +37,7 @@ public class Product implements Aggregate, Serializable {
         this.location = location;
         this.discount = discount;
         this.quantity = quantity;
+        this.reserved = reserved;
     }
 
     public void assignNewBarCode(EANBarcode barcode) {
@@ -88,7 +90,8 @@ public class Product implements Aggregate, Serializable {
                 command.category(),
                 command.location(),
                 command.discount(),
-                command.quantity()
+                command.quantity(),
+                new Quantity(0L)
         );
 
         return product;
@@ -116,7 +119,12 @@ public class Product implements Aggregate, Serializable {
                 ", category=" + category +
                 ", location=" + location +
                 ", quantity=" + quantity +
+                ", reserved=" + reserved +
                 '}';
+    }
+
+    public void reserveAmount(Integer amount) {
+        this.reserved = new Quantity(this.reserved.getAmount() + amount);
     }
 
 }

@@ -6,7 +6,6 @@ import com.onnivirtanen.inventory.domain.exception.ProductAlreadyExistsException
 import com.onnivirtanen.inventory.domain.exception.ProductNotFoundException;
 import com.onnivirtanen.inventory.domain.model.aggregate.Product;
 import com.onnivirtanen.inventory.domain.model.valueobject.Quantity;
-import com.onnivirtanen.inventory.domain.port.out.DomainEventPublisher;
 import com.onnivirtanen.inventory.domain.port.out.InventoryRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

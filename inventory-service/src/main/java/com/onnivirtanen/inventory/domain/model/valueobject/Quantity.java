@@ -13,8 +13,11 @@ public final class Quantity implements ValueObject, Serializable {
 
     public Quantity(Long amount) {
         validate(amount);
-
         this.amount = amount;
+    }
+
+    public Quantity(Integer amount) {
+        this(amount.longValue());
     }
 
     public Long getAmount() {

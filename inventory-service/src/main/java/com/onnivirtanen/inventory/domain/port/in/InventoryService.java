@@ -5,6 +5,7 @@ import com.onnivirtanen.inventory.domain.command.NewShelfLocationCommand;
 import com.onnivirtanen.inventory.domain.command.ProductMissingCommand;
 import com.onnivirtanen.inventory.domain.command.ReStockProductCommand;
 import com.onnivirtanen.inventory.domain.command.RemoveProductCommand;
+import com.onnivirtanen.inventory.domain.event.OrderCreatedEvent;
 import com.onnivirtanen.inventory.domain.model.aggregate.Product;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,5 +30,8 @@ public interface InventoryService {
 
     @Transactional(readOnly = false)
     void markProductMissing(ProductMissingCommand command);
+
+    @Transactional(readOnly = false)
+    void reserveItems(OrderCreatedEvent event);
 
 }
