@@ -1,0 +1,36 @@
+{
+  "cart": {
+    "productIds": [
+      "product1",
+      "product2",
+      "product3"
+    ],
+    "totalPrice": 150.75
+  },
+  "payment": {
+    "paymentMethod": "Credit Card",
+    "cardDetails": {
+      "cardNumber": "4111111111111111",
+      "cardHolderName": "John Doe",
+      "expirationDate": "12/25",
+      "cvv": "123"
+    },
+    "currency": "USD",
+    "transactionAmount": 150.75
+  },
+  "shipping": {
+    "shippingType": "Express",
+    "address": {
+      "street": "123 Main St",
+      "city": "Springfield",
+      "state": "IL",
+      "postalCode": "62701",
+      "country": "USA"
+    }
+  },
+  "customerDetails": {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phoneNumber": "+11234567890"
+  }
+}
