@@ -1,4 +1,4 @@
-package com.onnivirtanen.inventory.domain.usecases;
+package com.onnivirtanen.inventory.domain.service;
 
 import com.onnivirtanen.inventory.domain.command.AddNewProductCommand;
 import com.onnivirtanen.inventory.domain.command.ReStockProductCommand;

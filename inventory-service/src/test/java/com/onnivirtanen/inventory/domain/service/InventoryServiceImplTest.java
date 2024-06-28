@@ -1,8 +1,7 @@
-package com.onnivirtanen.inventory.domain.usecases;
+package com.onnivirtanen.inventory.domain.service;
 
 import com.onnivirtanen.inventory.domain.command.AddNewProductCommand;
 import com.onnivirtanen.inventory.domain.command.ReStockProductCommand;
-import com.onnivirtanen.inventory.domain.event.DomainEvent;
 import com.onnivirtanen.inventory.domain.exception.ProductAlreadyExistsException;
 import com.onnivirtanen.inventory.domain.exception.ProductNotFoundException;
 import com.onnivirtanen.inventory.domain.model.aggregate.Product;

@@ -1,12 +1,8 @@
 package com.onnivirtanen.inventory.domain.model.aggregate;
 
-import com.onnivirtanen.inventory.domain.event.DomainEvent;
-import com.onnivirtanen.inventory.domain.event.MarkProductMissingEvent;
-import com.onnivirtanen.inventory.domain.event.ProductCreatedEvent;
-import com.onnivirtanen.inventory.domain.event.ProductRestockedEvent;
+import com.onnivirtanen.inventory.domain.command.AddNewProductCommand;
 import com.onnivirtanen.inventory.domain.exception.AggregateObjectArgumentException;
 import com.onnivirtanen.inventory.domain.model.entity.Category;
-import com.onnivirtanen.inventory.domain.command.AddNewProductCommand;
 import com.onnivirtanen.inventory.domain.model.valueobject.Discount;
 import com.onnivirtanen.inventory.domain.model.valueobject.EANBarcode;
 import com.onnivirtanen.inventory.domain.model.valueobject.Price;
@@ -15,9 +11,6 @@ import com.onnivirtanen.inventory.domain.model.valueobject.ShelfLocation;
 import lombok.Getter;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -26,7 +19,6 @@ public class Product implements Aggregate, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private final List<DomainEvent> domainEvents = new ArrayList<>();
     private final UUID id;
     private EANBarcode barcode;
     private Price price;
@@ -60,7 +52,6 @@ public class Product implements Aggregate, Serializable {
 
     public void reStock(Quantity quantity) {
         this.quantity = new Quantity(this.quantity.getAmount() + quantity.getAmount());
-        domainEvents.add(new ProductRestockedEvent(this, "Product restocked"));
     }
 
     public void markProductMissing(Quantity quantityMissing) {
@@ -69,8 +60,6 @@ public class Product implements Aggregate, Serializable {
         }
 
         this.quantity = new Quantity(this.quantity.getAmount() - quantityMissing.getAmount());
-        domainEvents.add(new MarkProductMissingEvent(this, quantityMissing
-                + " products was marked missing"));
     }
 
     public void removeDiscount() {
@@ -102,8 +91,6 @@ public class Product implements Aggregate, Serializable {
                 command.quantity()
         );
 
-        product.addDomainEvent(new ProductCreatedEvent(product, "product created"));
-
         return product;
     }
 
@@ -132,17 +119,4 @@ public class Product implements Aggregate, Serializable {
                 '}';
     }
 
-    @Override
-    public List<DomainEvent> getDomainEvents() {
-        return Collections.unmodifiableList(domainEvents);
-    }
-
-    @Override
-    public void clearDomainEvents() {
-        domainEvents.clear();
-    }
-
-    private void addDomainEvent(DomainEvent domainEvent) {
-        domainEvents.add(domainEvent);
-    }
 }

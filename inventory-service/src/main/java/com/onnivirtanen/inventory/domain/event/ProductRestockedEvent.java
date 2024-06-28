@@ -1,10 +1,22 @@
 package com.onnivirtanen.inventory.domain.event;
 
-import com.onnivirtanen.inventory.domain.model.aggregate.Product;
+import com.virtanen.event.Event;
 
-public class ProductRestockedEvent extends ProductEvent {
+public class ProductRestockedEvent extends Event {
 
-    public ProductRestockedEvent(Product product, String message) {
-        super(EventType.UPDATE, product, message);
+    private String productId;
+
+    public ProductRestockedEvent() {
+        super("productRestocked");
     }
+
+    public ProductRestockedEvent(String productId) {
+        this();
+        this.productId = productId;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
 }
