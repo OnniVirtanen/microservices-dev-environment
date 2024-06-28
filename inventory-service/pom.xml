@@ -33,10 +33,11 @@
 			<version>3.0.4</version>
 		</dependency>
 
-		<!-- EVENT PRODUCER -->
+		<!-- EVENT -->
 		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka</artifactId>
+			<groupId>com.virtanen.event</groupId>
+			<artifactId>event-library</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 
 		<!-- REDUCE BOILER PLATE-->
