@@ -93,7 +93,7 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     public void reserveItems(OrderCreatedEvent event) {
-        Map<String, Integer> productsAmount = event.getProductsAmount();
+        Map<String, Integer> productsAmount = event.getCart().getProductsWithAmounts();
         for (Map.Entry<String, Integer> entry : productsAmount.entrySet()) {
             String productId = entry.getKey();
             Integer amount = entry.getValue();
@@ -104,7 +104,8 @@ public class InventoryServiceImpl implements InventoryService {
                 repository.save(p);
             }
         }
-        eventProducer.publish(new ReserveItemsEvent(UUID.randomUUID().toString(), event.getOrderId()), KAFKA_TOPIC_NAME);
+        eventProducer.publish(new ReserveItemsEvent(event.getOrderId(),
+                event.getPayment(), event.getShipping(), event.getCustomerDetails()), KAFKA_TOPIC_NAME);
     }
 
 }
