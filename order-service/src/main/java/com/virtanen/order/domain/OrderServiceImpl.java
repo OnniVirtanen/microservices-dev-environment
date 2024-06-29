@@ -1,10 +1,10 @@
 package com.virtanen.order.domain;
 
 import com.virtanen.event.EventProducer;
+import com.virtanen.event.events.OrderCompletedEvent;
+import com.virtanen.event.events.OrderCreatedEvent;
+import com.virtanen.event.events.WaitingFulfillmentEvent;
 import com.virtanen.order.application.dto.CreateOrderCommand;
-import com.virtanen.order.domain.event.OrderCompletedEvent;
-import com.virtanen.order.domain.event.OrderCreatedEvent;
-import com.virtanen.order.domain.event.WaitingFulfillmentEvent;
 import com.virtanen.order.domain.model.Order;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

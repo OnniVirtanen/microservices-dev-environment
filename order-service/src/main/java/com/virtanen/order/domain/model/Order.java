@@ -1,5 +1,9 @@
 package com.virtanen.order.domain.model;
 
+import com.virtanen.event.events.dto.CustomerDetails;
+import com.virtanen.event.events.dto.PaymentDetails;
+import com.virtanen.event.events.dto.ShippingDetails;
+import com.virtanen.event.events.dto.ShoppingCart;
 import org.springframework.data.annotation.Id;
 
 public class Order {

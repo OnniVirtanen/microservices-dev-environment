@@ -1,9 +1,9 @@
 package com.virtanen.order.application.dto;
 
-import com.virtanen.order.domain.model.CustomerDetails;
-import com.virtanen.order.domain.model.PaymentDetails;
-import com.virtanen.order.domain.model.ShippingDetails;
-import com.virtanen.order.domain.model.ShoppingCart;
+import com.virtanen.event.events.dto.CustomerDetails;
+import com.virtanen.event.events.dto.PaymentDetails;
+import com.virtanen.event.events.dto.ShippingDetails;
+import com.virtanen.event.events.dto.ShoppingCart;
 
 public class CreateOrderCommand {
 
