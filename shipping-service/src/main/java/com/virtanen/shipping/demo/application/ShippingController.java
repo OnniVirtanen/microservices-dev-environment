@@ -1,7 +1,7 @@
 package com.virtanen.shipping.demo.application;
 
-import com.virtanen.shipping.demo.domain.ShippingDetailsRepository;
-import com.virtanen.shipping.demo.domain.model.ShippingDetails;
+import com.virtanen.shipping.demo.domain.ShippingRepository;
+import com.virtanen.shipping.demo.domain.model.Shipping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,14 +12,14 @@ import java.util.List;
 @RequestMapping(path = "api/v1/shipping")
 public class ShippingController {
 
-    private final ShippingDetailsRepository repository;
+    private final ShippingRepository repository;
 
-    public ShippingController(ShippingDetailsRepository repository) {
+    public ShippingController(ShippingRepository repository) {
         this.repository = repository;
     }
 
     @GetMapping
-    public List<ShippingDetails> getShippingDetails() {
+    public List<Shipping> getShippingDetails() {
         return repository.findAll();
     }
 

@@ -2,17 +2,18 @@ package com.virtanen.shipping.demo.domain.model;
 
 import org.springframework.data.annotation.Id;
 
-public class ShippingDetails {
+public class Shipping {
 
     @Id
     private String id;
     private String orderId;
+    private Address address;
     private boolean shipped;
 
-    public ShippingDetails() {
+    public Shipping() {
     }
 
-    public ShippingDetails(String id, String orderId, boolean shipped) {
+    public Shipping(String id, String orderId, boolean shipped) {
         this.id = id;
         this.orderId = orderId;
         this.shipped = shipped;
