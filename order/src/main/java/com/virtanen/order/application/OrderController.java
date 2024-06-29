@@ -19,9 +19,7 @@ public class OrderController {
 
     @PostMapping
     public void createOrder(@RequestBody CreateOrderCommand command) {
-        System.out.println("1");
         orderService.createOrder(command);
-        System.out.println("2");
     }
 
 }
