@@ -1,0 +1,127 @@
+{
+  "type" : "record",
+  "name" : "OrderCreatedEvent",
+  "namespace" : "com.virtanen.event.events",
+  "fields" : [ {
+    "name" : "cart",
+    "type" : [ "null", {
+      "type" : "record",
+      "name" : "ShoppingCart",
+      "namespace" : "com.virtanen.event.events.dto",
+      "fields" : [ {
+        "name" : "productsWithAmounts",
+        "type" : [ "null", {
+          "type" : "map",
+          "values" : {
+            "type" : "int",
+            "java-class" : "java.lang.Integer"
+          }
+        } ]
+      }, {
+        "name" : "totalPrice",
+        "type" : [ "null", {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "customerDetails",
+    "type" : [ "null", {
+      "type" : "record",
+      "name" : "CustomerDetails",
+      "namespace" : "com.virtanen.event.events.dto",
+      "fields" : [ {
+        "name" : "email",
+        "type" : [ "null", "string" ]
+      }, {
+        "name" : "name",
+        "type" : [ "null", "string" ]
+      }, {
+        "name" : "phoneNumber",
+        "type" : [ "null", "string" ]
+      } ]
+    } ]
+  }, {
+    "name" : "id",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "name",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "orderId",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "payment",
+    "type" : [ "null", {
+      "type" : "record",
+      "name" : "PaymentDetails",
+      "namespace" : "com.virtanen.event.events.dto",
+      "fields" : [ {
+        "name" : "cardDetails",
+        "type" : [ "null", {
+          "type" : "record",
+          "name" : "CardDetails",
+          "fields" : [ {
+            "name" : "cardHolderName",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "cardNumber",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "cvv",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "expirationDate",
+            "type" : [ "null", "string" ]
+          } ]
+        } ]
+      }, {
+        "name" : "currency",
+        "type" : [ "null", "string" ]
+      }, {
+        "name" : "paymentMethod",
+        "type" : [ "null", "string" ]
+      }, {
+        "name" : "transactionAmount",
+        "type" : [ "null", {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "shipping",
+    "type" : [ "null", {
+      "type" : "record",
+      "name" : "ShippingDetails",
+      "namespace" : "com.virtanen.event.events.dto",
+      "fields" : [ {
+        "name" : "address",
+        "type" : [ "null", {
+          "type" : "record",
+          "name" : "Address",
+          "fields" : [ {
+            "name" : "city",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "country",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "postalCode",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "state",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "street",
+            "type" : [ "null", "string" ]
+          } ]
+        } ]
+      }, {
+        "name" : "shippingType",
+        "type" : [ "null", "string" ]
+      } ]
+    } ]
+  } ]
+}

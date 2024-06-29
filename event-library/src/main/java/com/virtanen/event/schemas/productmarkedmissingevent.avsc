@@ -1,0 +1,15 @@
+{
+  "type" : "record",
+  "name" : "ProductMarkedMissingEvent",
+  "namespace" : "com.virtanen.event.events",
+  "fields" : [ {
+    "name" : "id",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "name",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "productId",
+    "type" : [ "null", "string" ]
+  } ]
+}

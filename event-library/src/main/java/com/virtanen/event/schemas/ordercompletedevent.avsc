@@ -1,0 +1,15 @@
+{
+  "type" : "record",
+  "name" : "OrderCompletedEvent",
+  "namespace" : "com.virtanen.event.events",
+  "fields" : [ {
+    "name" : "id",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "name",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "orderId",
+    "type" : [ "null", "string" ]
+  } ]
+}

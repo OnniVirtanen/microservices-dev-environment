@@ -1,0 +1,68 @@
+{
+  "type" : "record",
+  "name" : "PaymentProcessedEvent",
+  "namespace" : "com.virtanen.event.events",
+  "fields" : [ {
+    "name" : "customerDetails",
+    "type" : [ "null", {
+      "type" : "record",
+      "name" : "CustomerDetails",
+      "namespace" : "com.virtanen.event.events.dto",
+      "fields" : [ {
+        "name" : "email",
+        "type" : [ "null", "string" ]
+      }, {
+        "name" : "name",
+        "type" : [ "null", "string" ]
+      }, {
+        "name" : "phoneNumber",
+        "type" : [ "null", "string" ]
+      } ]
+    } ]
+  }, {
+    "name" : "id",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "name",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "orderId",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "paymentId",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "shipping",
+    "type" : [ "null", {
+      "type" : "record",
+      "name" : "ShippingDetails",
+      "namespace" : "com.virtanen.event.events.dto",
+      "fields" : [ {
+        "name" : "address",
+        "type" : [ "null", {
+          "type" : "record",
+          "name" : "Address",
+          "fields" : [ {
+            "name" : "city",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "country",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "postalCode",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "state",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "street",
+            "type" : [ "null", "string" ]
+          } ]
+        } ]
+      }, {
+        "name" : "shippingType",
+        "type" : [ "null", "string" ]
+      } ]
+    } ]
+  } ]
+}
