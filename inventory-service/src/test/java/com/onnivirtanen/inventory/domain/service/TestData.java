@@ -38,7 +38,8 @@ public class TestData {
                 new Category("FRESH_PRODUCE"),
                 new ShelfLocation("A05"),
                 new Discount(0),
-                new Quantity((long) 7)
+                new Quantity((long) 7),
+                new Quantity((long) 0)
         );
     }
 }

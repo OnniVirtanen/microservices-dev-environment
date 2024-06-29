@@ -25,9 +25,6 @@ class InventoryServiceImplTest {
     @Mock
     private InventoryRepository repository;
 
-    @Mock
-    private DomainEventPublisher publisher;
-
     @InjectMocks
     private InventoryServiceImpl service;
 
@@ -46,7 +43,6 @@ class InventoryServiceImplTest {
         assertEquals(product, savedProduct);
         verify(repository).productExistsByEAN(command.barcode());
         verify(repository).save(product);
-        verify(publisher).publish(any(DomainEvent.class));
     }
 
     @Test
@@ -77,7 +73,6 @@ class InventoryServiceImplTest {
                 restockedProduct.getQuantity());
         verify(repository).findById(command.productId());
         verify(repository).update(product);
-        verify(publisher).publish(any(DomainEvent.class));
     }
 
     @Test
