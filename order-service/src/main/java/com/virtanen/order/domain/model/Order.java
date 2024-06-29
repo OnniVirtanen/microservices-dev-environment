@@ -6,6 +6,7 @@ public class Order {
 
     @Id
     private String id;
+    private boolean completed;
     private ShoppingCart cart;
     private PaymentDetails payment;
     private ShippingDetails shipping;
@@ -14,9 +15,10 @@ public class Order {
     public Order() {
     }
 
-    public Order(String id, ShoppingCart cart, PaymentDetails payment, ShippingDetails shipping,
+    public Order(String id, boolean completed, ShoppingCart cart, PaymentDetails payment, ShippingDetails shipping,
                  CustomerDetails customerDetails) {
         this.id = id;
+        this.completed = completed;
         this.cart = cart;
         this.payment = payment;
         this.shipping = shipping;
@@ -29,6 +31,14 @@ public class Order {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     public ShoppingCart getCart() {
@@ -61,6 +71,10 @@ public class Order {
 
     public void setCustomerDetails(CustomerDetails customerDetails) {
         this.customerDetails = customerDetails;
+    }
+
+    public void complete() {
+        this.completed = true;
     }
 
 }
