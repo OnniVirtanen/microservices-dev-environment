@@ -1,8 +1,8 @@
 package com.virtanen.shipping.demo.domain;
 
 import com.virtanen.event.EventProducer;
-import com.virtanen.shipping.demo.domain.event.PaymentProcessedEvent;
-import com.virtanen.shipping.demo.domain.event.WaitingFulfillmentEvent;
+import com.virtanen.event.events.PaymentProcessedEvent;
+import com.virtanen.event.events.WaitingFulfillmentEvent;
 import com.virtanen.shipping.demo.domain.model.Shipping;
 import org.springframework.stereotype.Service;
 

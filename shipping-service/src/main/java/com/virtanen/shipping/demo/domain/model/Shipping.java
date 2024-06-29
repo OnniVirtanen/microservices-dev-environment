@@ -1,6 +1,7 @@
 package com.virtanen.shipping.demo.domain.model;
 
-import com.virtanen.shipping.demo.domain.event.dto.Address;
+
+import com.virtanen.event.events.dto.Address;
 import org.springframework.data.annotation.Id;
 
 public class Shipping {

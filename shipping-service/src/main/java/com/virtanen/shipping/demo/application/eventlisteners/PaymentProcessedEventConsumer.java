@@ -1,8 +1,8 @@
 package com.virtanen.shipping.demo.application.eventlisteners;
 
 import com.virtanen.event.EventConsumer;
+import com.virtanen.event.events.PaymentProcessedEvent;
 import com.virtanen.shipping.demo.domain.ShippingService;
-import com.virtanen.shipping.demo.domain.event.PaymentProcessedEvent;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 

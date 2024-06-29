@@ -1,6 +1,6 @@
 package com.virtanen.shipping.demo.domain;
 
-import com.virtanen.shipping.demo.domain.event.PaymentProcessedEvent;
+import com.virtanen.event.events.PaymentProcessedEvent;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface ShippingService {

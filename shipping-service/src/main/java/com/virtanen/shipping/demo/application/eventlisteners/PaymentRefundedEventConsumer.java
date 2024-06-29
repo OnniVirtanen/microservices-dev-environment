@@ -1,7 +1,7 @@
 package com.virtanen.shipping.demo.application.eventlisteners;
 
 import com.virtanen.event.EventConsumer;
-import com.virtanen.shipping.demo.domain.event.PaymentRefundedEvent;
+import com.virtanen.event.events.PaymentRefundedEvent;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
