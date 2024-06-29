@@ -1,8 +1,8 @@
 package com.onnivirtanen.inventory.application.eventconsumer;
 
-import com.onnivirtanen.inventory.domain.event.OrderCreatedEvent;
 import com.onnivirtanen.inventory.domain.port.in.InventoryService;
 import com.virtanen.event.EventConsumer;
+import com.virtanen.event.events.OrderCreatedEvent;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
