@@ -7,8 +7,8 @@ services:
       context: .
     container_name: order-service
     environment:
-      - SPRING_DATA_MONGODB_URI=mongodb://mongo:mongo@localhost:27017/order?authSource=admin
-      - SPRING_KAFKA_BOOTSTRAP-SERVERS=localhost:29092,localhost:39092
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:mongo@mongodb:27017/order?authSource=admin
+      - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-1:9092,kafka-2:9092
     ports:
       - "8080:8080"
     networks:
@@ -16,32 +16,37 @@ services:
     depends_on:
       - mongodb
       - kafka-1
+      - kafka-2
   shipping-service:
     image: 'shipping-service:latest'
     build:
       context: .
     container_name: shipping-service
     environment:
-      - SPRING_DATA_MONGODB_URI=mongodb://mongo:mongo@localhost:27017/shipping?authSource=admin
-      - SPRING_KAFKA_BOOTSTRAP-SERVERS=localhost:29092,localhost:39092
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:mongo@mongodb:27017/shipping?authSource=admin
+      - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-1:9092,kafka-2:9092
     ports:
-      - "8081:8081"
+      - "8081:8080"
     networks:
       - app-network
     depends_on:
       - mongodb
       - kafka-1
+      - kafka-2
   payment-service:
     image: 'payment-service:latest'
     build:
       context: .
     container_name: payment-service
+    environment:
+      - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-1:9092,kafka-2:9092
     ports:
-      - "8082:8082"
+      - "8082:8080"
     networks:
       - app-network
     depends_on:
       - kafka-1
+      - kafka-2
   inventory-service:
     image: 'inventory-service:latest'
     build:
@@ -52,13 +57,15 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+      - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-1:9092,kafka-2:9092
     ports:
-      - "8083:8083"
+      - "8083:8080"
     networks:
       - app-network
     depends_on:
       - postgres
       - kafka-1
+      - kafka-2
   postgres:
     image: postgres:14-alpine
     ports:
@@ -136,6 +143,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     networks:
       - app-network
+
 
 networks:
   app-network:
