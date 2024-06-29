@@ -1,6 +1,6 @@
 package com.virtanen.payment.demo.domain;
 
-import com.virtanen.payment.demo.domain.event.ReserveItemsEvent;
+import com.virtanen.event.events.ReserveItemsEvent;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface PaymentService {

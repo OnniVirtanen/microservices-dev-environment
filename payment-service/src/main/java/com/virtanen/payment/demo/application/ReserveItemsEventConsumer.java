@@ -1,8 +1,8 @@
 package com.virtanen.payment.demo.application;
 
 import com.virtanen.event.EventConsumer;
+import com.virtanen.event.events.ReserveItemsEvent;
 import com.virtanen.payment.demo.domain.PaymentService;
-import com.virtanen.payment.demo.domain.event.ReserveItemsEvent;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 

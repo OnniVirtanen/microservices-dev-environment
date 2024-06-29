@@ -1,8 +1,8 @@
 package com.virtanen.payment.demo.domain;
 
 import com.virtanen.event.EventProducer;
-import com.virtanen.payment.demo.domain.event.PaymentProcessedEvent;
-import com.virtanen.payment.demo.domain.event.ReserveItemsEvent;
+import com.virtanen.event.events.PaymentProcessedEvent;
+import com.virtanen.event.events.ReserveItemsEvent;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
