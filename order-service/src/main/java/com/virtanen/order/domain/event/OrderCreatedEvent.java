@@ -21,6 +21,7 @@ public class OrderCreatedEvent extends Event {
     public OrderCreatedEvent(String orderId, ShoppingCart cart, PaymentDetails payment,
                              ShippingDetails shipping, CustomerDetails customerDetails) {
         this();
+        this.orderId = orderId;
         this.cart = cart;
         this.payment = payment;
         this.shipping = shipping;

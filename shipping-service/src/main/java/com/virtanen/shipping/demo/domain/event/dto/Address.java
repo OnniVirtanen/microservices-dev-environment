@@ -8,6 +8,9 @@ public class Address {
     private String postalCode;
     private String country;
 
+    public Address() {
+    }
+
     public Address(String street, String city, String state, String postalCode, String country) {
         this.street = street;
         this.city = city;
@@ -18,6 +21,26 @@ public class Address {
 
     public String getStreet() {
         return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getCity() {

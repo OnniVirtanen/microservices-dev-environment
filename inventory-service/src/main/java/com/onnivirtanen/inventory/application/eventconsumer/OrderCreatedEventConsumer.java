@@ -17,7 +17,7 @@ public class OrderCreatedEventConsumer extends EventConsumer<OrderCreatedEvent> 
     }
 
     @Override
-    @KafkaListener(topics = "order", groupId = "order-created-group")
+    @KafkaListener(topics = "order", groupId = "order-created-group-local")
     public void listen(String message) {
         if (super.isRelevantEvent(message)) {
             consume(super.parseMessage(message));

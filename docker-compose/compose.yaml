@@ -10,7 +10,7 @@ services:
       - SPRING_DATA_MONGODB_URI=mongodb://mongo:mongo@mongodb:27017/order?authSource=admin
       - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-1:9092,kafka-2:9092
     ports:
-      - "8080:8080"
+      - "8084:8080"
     networks:
       - app-network
     depends_on:
