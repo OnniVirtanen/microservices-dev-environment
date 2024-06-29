@@ -23,7 +23,7 @@ public class ShippingServiceImpl implements ShippingService {
         producer.publish(new WaitingFulfillmentEvent(
                 shipping.getOrderId(),
                 shipping.getId()
-        ), "shipment");
+        ), "shipping");
     }
 
 }
