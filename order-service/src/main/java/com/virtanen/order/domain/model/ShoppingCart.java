@@ -1,21 +1,16 @@
 package com.virtanen.order.domain.model;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ShoppingCart {
 
-    private List<String> productIds = new ArrayList<>();
+    private Map<String, Integer> productsWithAmounts = new HashMap<>();
     private BigDecimal totalPrice;
 
-    public ShoppingCart(List<String> productIds, BigDecimal totalPrice) {
-        this.productIds = productIds;
-        this.totalPrice = totalPrice;
-    }
-
-    public List<String> getProductIds() {
-        return productIds;
+    public Map<String, Integer> getProductsWithAmounts() {
+        return productsWithAmounts;
     }
 
     public BigDecimal getTotalPrice() {

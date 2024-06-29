@@ -1,10 +1,10 @@
 {
   "cart": {
-    "productIds": [
-      "product1",
-      "product2",
-      "product3"
-    ],
+    "productsWithAmounts": {
+      "product1": 2,
+      "product2": 1,
+      "product3": 3
+    },
     "totalPrice": 150.75
   },
   "payment": {
